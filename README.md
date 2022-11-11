@@ -1,46 +1,25 @@
-# Getting Started with Create React App
+# Storefront
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Phase 1
+- Display an available list of product categories
+- Allow user to select a category and see list of all available products in that category
+- implement material UI
+- use redux store to mange state of categories and items in store.
 
-## Available Scripts
+### UML
+![](./img/design/phase1UML.PNG)
+### Wireframe
+![](./img/design/phase1%20wireframe.PNG)
 
-In the project directory, you can run:
+### Learning for this Phase
 
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+#### Redux Basics
+Principals of Redux
+1. Single source of trute, ie the state of the entire application is kept within a single store/state tree. 
+2. State is read only, and the only way to change the state is to trigger an action. 
+3. Changes are made with pure functions, ie those whose return values depend entirely on the values of their arguements. 
+Redux has Four Components. 
+1. An action is the only way to change state conent. It is an object which has the main source of information used to send data. To call actions, use the dispatch() method.
+2. Actions describe that SOMETHING has happened, and reducers specify how the application state is to change in response. 
+3. A store is an object which can hold the applications state and provide helper methods to access the state, dispatch actions, and register listeners. 
+- [The Docs of getting Started](https://redux-toolkit.js.org/tutorials/quick-start) 

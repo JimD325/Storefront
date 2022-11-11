@@ -1,0 +1,14 @@
+*{
+  box-sizing: border-box;
+}
+
+.headerDiv{
+  display:flex;
+  align-items: center;
+  margin:auto;
+  justify-content: center;
+}
+
+.headerLogo{
+  align:left;
+}
