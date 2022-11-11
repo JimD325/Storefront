@@ -7,9 +7,9 @@
 - use redux store to mange state of categories and items in store.
 
 ### UML
-![](./img/design/phase1UML.PNG)
+![](./src/img/design/phase1UML.PNG)
 ### Wireframe
-![](./img/design/phase1%20wireframe.PNG)
+![](./src/img/design/phase1%20wireframe.PNG)
 
 ### Learning for this Phase
 
