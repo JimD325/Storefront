@@ -39,6 +39,8 @@ export const Collections = () => {
 
   console.log("selected collection", selectedCollections)
   return (
+    <>
+    <h1>Our Collections</h1>
     <div className="collectionGridContainer">
       <Grid container
         spacing={3}
@@ -47,7 +49,7 @@ export const Collections = () => {
         columns={3}>
         {/*  */}
         <Button size="large" color="inherit" onClick={() => {
-     dispatch(changeSelectedCollection('cabo'));
+     dispatch(changeSelectedCollection('Cabo'));
   }} >
           <Card raised sx={{ width: 300, height: "auto" }}>
             
@@ -62,7 +64,7 @@ export const Collections = () => {
         </Button>
         <Button size="large" color="inherit" 
         onClick={() => {
-          dispatch(changeSelectedCollection('tahoe'))}}
+          dispatch(changeSelectedCollection('Tahoe'))}}
         >
         <Card raised sx={{ width: 300, height: "auto" }}>
     
@@ -77,13 +79,13 @@ export const Collections = () => {
         </Button>
         <Button size="large" color="inherit"
         onClick={() => {
-          dispatch(changeSelectedCollection('surf'))}} >
+          dispatch(changeSelectedCollection('Surf'))}} >
         <Card raised sx={{ width: 300, height: "auto" }}>
           
             <CardMedia component="img" image='https://static.wixstatic.com/media/ac9cb6_d7dc865729554d98819da95799b54993~mv2.png/v1/fill/w_525,h_525,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/ac9cb6_d7dc865729554d98819da95799b54993~mv2.png' />
             <CardContent>
               <Typography component="div" align='center'>
-                Golf Collection
+                Surf Collection
               </Typography>
             </CardContent>
         </Card>
@@ -91,6 +93,8 @@ export const Collections = () => {
       </Grid>
     </div>
 
+    </>
+    
   )
 
 }
