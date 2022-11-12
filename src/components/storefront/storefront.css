@@ -10,3 +10,15 @@
 .css-vt1xvu-MuiGrid-root {
   margin-top: 30px !important;
 }
+
+.collectionNameContainer {
+  display:flex;
+  margin-top: 30px !important;
+  background-color: beige;
+  justify-content:space-between;
+}
+
+.collectionNameContainerButton {
+  justify-content: right;
+  align-content: center;
+}

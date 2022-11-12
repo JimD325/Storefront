@@ -2,15 +2,30 @@
 import Grid from '@mui/material/Grid';
 import {data} from './data'
 import type { RootState } from '../../store'
-import { useSelector} from 'react-redux'
-import { Card, CardContent, CardMedia, Typography } from '@mui/material';
+import { useSelector, useDispatch } from 'react-redux'
+import { Card, CardContent, CardMedia, Typography, Button } from '@mui/material';
+import { changeSelectedCollection } from '../../features/products/productsSlice';
 
 export const CurrentCollection = () => {
   const selectedCollections = useSelector((state: RootState) => state.selectedCollections.selectedCollectionName)
+  const dispatch = useDispatch()
   let filteredData = data.filter(obj => obj.collection === selectedCollections);
-  console.log('filtered data on current collection',filteredData)
+  console.log('selectedCollections on current collection', selectedCollections);
   return(
     <>
+    <div className = "collectionNameContainer">
+      <h1>{selectedCollections} Collection</h1>
+    <Button 
+    size="large" 
+    color="inherit"
+    className = "collectionNameContainerButton" 
+        onClick={() => {
+          dispatch(changeSelectedCollection('none'))}}
+        >
+          View Collections↩️
+        </Button>
+    </div>
+    
     <Grid container
     
     rowSpacing={0}
@@ -34,6 +49,7 @@ export const CurrentCollection = () => {
         </Card>
         )
       })}
+      
       </Grid>
     </>
   )
