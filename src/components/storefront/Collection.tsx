@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import type { RootState } from '../../store'
 import Grid from '@mui/material/Grid';
-import { Card, CardContent, Typography, CardMedia, CardActionArea, Button } from "@mui/material";
+import { Card, CardContent, Typography, CardMedia,  Button } from "@mui/material";
 import './storefront.css'
 import { changeSelectedCollection } from '../../features/products/productsSlice'
 import { useSelector, useDispatch } from 'react-redux'
@@ -27,20 +27,29 @@ export const collectionArray: CollectionInterface[] = [
   }
 ]
 
-export const SelectedCollectionHandler = (string:string) => {
-  console.log(string)
-}
 
 
 
-export const Collections = () => {
+export const Collections = (props:any) => {
   const selectedCollections = useSelector((state: RootState) => state.selectedCollections.selectedCollectionName)
   const dispatch = useDispatch()
-
+  const cart = useSelector((state:RootState) => state.cart.itemsInCart)
   console.log("selected collection", selectedCollections)
   return (
     <>
-    <h1>Our Collections</h1>
+    <div className = "collectionNameContainer">
+      <h1>Browse Collections</h1>
+    <Button 
+    size="small" 
+    color="inherit"
+    className = "collectionNameContainerButton" 
+        onClick={() => {
+          props.handleOpen()}}
+        >
+          Cart🛒({cart.length})
+        </Button>
+    </div>
+    
     <div className="collectionGridContainer">
       <Grid container
         spacing={3}
@@ -48,8 +57,7 @@ export const Collections = () => {
         justifyContent="space-evenly"
         columns={3}>
         {/*  */}
-        <Button size="large" color="inherit" onClick={() => {
-     dispatch(changeSelectedCollection('Cabo'));
+        <Button size="large" color="inherit" onClick={() => {dispatch(changeSelectedCollection('Cabo'));
   }} >
           <Card raised sx={{ width: 300, height: "auto" }}>
             
