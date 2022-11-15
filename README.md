@@ -1,5 +1,18 @@
 # Storefront
 
+## Phase 2
+- Allow user to add Items to a cart
+- Allow user to see the items they have added to the cart
+- Allow the User to change the quantity of items in a cart
+- Allow user to remove item from the Cart
+
+### Learning from the Phase
+- Very similar to phase 1 with regards to approach
+- Implemented a modal for the cart, which opens when the user clicks on the view cart button
+- Modal displays a scrollable list of items that the user has added 
+- Each item on the list in the cart allows the users to increment/decrement the items in the cart, with the item being removed when the quantity reaches zero. 
+
+
 ## Phase 1
 - Display an available list of product categories
 - Allow user to select a category and see list of all available products in that category
