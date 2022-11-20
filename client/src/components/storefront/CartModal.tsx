@@ -9,7 +9,6 @@ import type { RootState } from '../../store'
 export const CartModal = () => {
   const cart = useSelector((state: RootState) => state.cart.itemsInCart)
   const dispatch = useDispatch()
-  console.log("cart on cartModal", cart)
 
   let totalPrice = 0;
 
@@ -69,6 +68,7 @@ export const CartModal = () => {
         )
       })}
       <h1>Your Total Price is ${Math.ceil(totalPrice*100)/100}</h1>
+      <Button onClick = {() => }>Checkout</Button>
     </>
    
   )

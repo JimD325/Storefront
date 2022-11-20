@@ -1,5 +1,18 @@
 # Storefront
 
+## Phase 3
+- Implement a backend/database
+- Database should hold all the assets/imagery
+- Show user that a particular item is in stock
+- load categories/product lists from database on pageload
+- change quantity in stock when items added to cart (or on checkout)
+
+### Learning
+#### Implementing Thunks
+1. Go to the slice for the state you are looking to use a thunk on
+2. Create the API calls you want this slice to have access to (GET, CREATE, etc..)
+3. put the API call inside of a createAsyncThunk method. 
+4. Add the extraReducers option inside of the createSlice function
 ## Phase 2
 - Allow user to add Items to a cart
 - Allow user to see the items they have added to the cart

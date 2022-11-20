@@ -1,7 +1,8 @@
-import { configureStore, createReducer } from '@reduxjs/toolkit'
+import { Action, configureStore, createReducer, ThunkAction } from '@reduxjs/toolkit'
 import counterReducer from './features/counter/counterSlice'
 import selectedCollectionsReducer from './features/products/productsSlice'
 import cartReducer from './features/cart/cartSlice'
+
 export const store = configureStore({
   reducer: {
     counter: counterReducer,
@@ -14,3 +15,9 @@ export const store = configureStore({
 export type RootState = ReturnType<typeof store.getState>
 // Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
 export type AppDispatch = typeof store.dispatch
+export type AppThunk<ReturnType = void> = ThunkAction<
+  ReturnType,
+  RootState,
+  unknown,
+  Action<string>
+>;
