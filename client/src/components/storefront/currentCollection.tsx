@@ -1,15 +1,12 @@
 // this conditionally renders the colletion of choice in a card layout theme. 
 import Grid from '@mui/material/Grid';
-import { data } from './data'
 import type { RootState } from '../../store'
 import { useSelector, useDispatch} from 'react-redux'
-import { useEffect } from 'react'
-import { fetchAllProducts } from '../../features/products/productsSlice'
 import { Card, CardContent, CardMedia, Typography, Button } from '@mui/material';
 import { changeSelectedCollection } from '../../features/products/productsSlice';
 import { addToCart, incrementAmountInCart } from '../../features/cart/cartSlice'
 import {ProductInterface} from './data'
-import { useAppDispatch } from '../../app/hooks';
+
 
 
 
@@ -41,7 +38,7 @@ export const CurrentCollection = (props: any) => {
         >
           View Collections↩️
         </Button>
-        <Button
+          {cart.length > 0 ? <Button  
           size="small"
           color="inherit"
           className="ViewCart"
@@ -50,7 +47,8 @@ export const CurrentCollection = (props: any) => {
           }}
         >
           View Cart🛒({cartItemsCountHandler()})
-        </Button>
+        </Button> : <></>}
+        
       </div>
       <Grid container
         rowSpacing={0}
@@ -80,7 +78,9 @@ export const CurrentCollection = (props: any) => {
                           name: object.name,
                           price: object.price,
                           quantityOfThisItemInCart: 1,
-                          image: object.image
+                          image: object.image,
+                          _id: object._id,
+                          quantityInStock: object.quantityInStock,
                         }))
                   }}
                 >

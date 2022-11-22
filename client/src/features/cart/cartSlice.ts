@@ -5,10 +5,12 @@ import { RootState } from '../../store'
 
 
 export interface ItemInCart {
+  _id: string
   image: string
   name: string,
   price: number,
-  quantityOfThisItemInCart: number
+  quantityOfThisItemInCart: number,
+  quantityInStock: number,
 }
 
 export interface ShoppingCartInterface {
@@ -56,11 +58,14 @@ export const cartSlice = createSlice({
         }
       }
     },
+    clearCart :(state)  => {
+      state.itemsInCart = initialState.itemsInCart
+    }
   },
 })
 
 // Action creators are generated for each case reducer function
-export const { addToCart, incrementAmountInCart, decrementAmountInCart } = cartSlice.actions
+export const { addToCart, incrementAmountInCart, decrementAmountInCart, clearCart } = cartSlice.actions
 
 export const itemsInCart = (state: RootState): string | undefined => state.selectedCollections.selectedCollectionName
 

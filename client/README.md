@@ -13,6 +13,10 @@
 2. Create the API calls you want this slice to have access to (GET, CREATE, etc..)
 3. put the API call inside of a createAsyncThunk method. 
 4. Add the extraReducers option inside of the createSlice function
+5. Implement useEffect hook to dispatch the fetchAllProducts action on the storefront component
+6. access all products on the currentCollection component and replace all the hard coded data with the data from the backend.
+7. Profit
+
 ## Phase 2
 - Allow user to add Items to a cart
 - Allow user to see the items they have added to the cart

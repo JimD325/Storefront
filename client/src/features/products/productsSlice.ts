@@ -1,9 +1,8 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
 import { RootState } from '../../store'
-import {ProductInterface} from '../../components/storefront/data'
-import axios from 'axios'
-
+import { ProductInterface } from '../../components/storefront/data'
+import { ItemInCart } from '../cart/cartSlice'
 
 export interface selectedCollectionState {
   selectedCollectionName: string,
@@ -19,13 +18,14 @@ const initialState: selectedCollectionState = {
 
 export const fetchAllProducts = createAsyncThunk<ProductInterface[]>(
   'fetchAllProducts',
-  async (thunkAPI) => {
+  async () => {
     const response = await fetch('http://localhost:3001/product');
     const data: ProductInterface[] = await response.json();
 
     return data;
   }
 )
+
 
 export const selectedCollectionSlice = createSlice({
   name: 'selectedCollection',
@@ -36,9 +36,11 @@ export const selectedCollectionSlice = createSlice({
     }
   },
   extraReducers: (builder) => {
-    builder.addCase(fetchAllProducts.fulfilled, (state, {payload}) => {
+    builder.addCase(fetchAllProducts.fulfilled, (state, { payload }) => {
       state.allProducts = [...payload]
-    })
+    });
+
+   
   }
 })
 
@@ -47,7 +49,7 @@ export const selectedCollectionSlice = createSlice({
 // Action creators are generated for each case reducer function
 export const { changeSelectedCollection } = selectedCollectionSlice.actions
 
-export const selectedCollectionName = (state:RootState):string|undefined => state.selectedCollections.selectedCollectionName
+export const selectedCollectionName = (state: RootState): string | undefined => state.selectedCollections.selectedCollectionName
 
 
 export default selectedCollectionSlice.reducer

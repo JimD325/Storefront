@@ -64,7 +64,7 @@ const cart = useSelector((state:RootState) => state.cart.itemsInCart)
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <CartModal/>
+          <CartModal handleOpen = {handleOpen} handleClose = {handleClose}/>
         </Box>
       </Modal>
     </div>
