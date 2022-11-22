@@ -1,14 +1,18 @@
 import {Collections} from './Collection'
+import { useEffect } from 'react'
 import type { RootState } from '../../store'
-import { useSelector} from 'react-redux'
 import {CurrentCollection} from './currentCollection'
 // modal imports for cart
 import * as React from 'react';
 import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
-import Modal from '@mui/material/Modal';
+
+
 import {CartModal} from './CartModal'
+import { fetchAllProducts } from '../../features/products/productsSlice'
+import { useSelector, useDispatch } from 'react-redux'
+import { ProductInterface } from './data'
+import { useAppDispatch } from '../../app/hooks';
+import Modal from '@mui/material/Modal';
 
 
 const style = {
@@ -26,22 +30,32 @@ const style = {
 
 export const Storefront = () => {
   const selectedCollections = useSelector((state: RootState) => state.selectedCollections.selectedCollectionName)
-console.log("state on storefront", selectedCollections)
+  const dispatch = useAppDispatch()
 
 // modal state 
 const [open, setOpen] = React.useState(false);
 const handleOpen = () => setOpen(true);
 const handleClose = () => setOpen(false);
 
+// api fetchProducts State
+
+useEffect (()=> {
+  console.log("selectedCollections on storeFront useEffect", selectedCollections)
+  dispatch(fetchAllProducts());
+
+},[dispatch])
+
+
+  
 const cart = useSelector((state:RootState) => state.cart.itemsInCart)
-console.log("cart on storefront", cart);
+
 
   if(selectedCollections ==='none'){
     return (
       <>
-      <Collections handleOpen={handleOpen}/>
+      <Collections handleOpen={handleOpen} />
       <div>
-      <Button onClick={handleOpen}>Open modal</Button>
+      
       
       <Modal
         open={open}
@@ -50,7 +64,7 @@ console.log("cart on storefront", cart);
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <CartModal/>
+          <CartModal handleOpen = {handleOpen} handleClose = {handleClose}/>
         </Box>
       </Modal>
     </div>
@@ -62,7 +76,7 @@ console.log("cart on storefront", cart);
     return(
       <>
       <CurrentCollection handleOpen={handleOpen}/>
-      <Button onClick={handleOpen}>Open modal</Button>
+      
       <Modal
         open={open}
         onClose={handleClose}
@@ -77,3 +91,5 @@ console.log("cart on storefront", cart);
     )
   }
 } 
+
+
